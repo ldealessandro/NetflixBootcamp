@@ -1,0 +1,4 @@
+com\everis\d4i\tutorial\config\SwaggerConfig.class
+com\everis\d4i\tutorial\exceptions\InternalServerErrorException.class
+com\everis\d4i\tutorial\exceptions\NotFoundException.class
+com\everis\d4i\tutorial\dto\ErrorDto.class
