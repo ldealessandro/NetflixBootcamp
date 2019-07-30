@@ -31,9 +31,6 @@ public class AwardControllerImpl implements AwardController {
 	@Autowired
 	private AwardService awardService;
 
-
-	
-	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
@@ -43,12 +40,12 @@ public class AwardControllerImpl implements AwardController {
 	}
 
 	@Override
-	@ResponseStatus(HttpStatus.OK)
+	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public NetflixResponse<AwardRest> createAward(
 			@ApiParam(value = RestConstants.PARAMETER_AWARD, required = true) @RequestBody @Valid final AwardRest awardRest)
 			throws NetflixException {
-		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK,
+		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.CREATED), CommonConstants.OK,
 				awardService.createAward(awardRest));
 	}
 	

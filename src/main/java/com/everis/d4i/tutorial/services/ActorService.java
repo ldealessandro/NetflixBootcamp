@@ -16,7 +16,7 @@ public interface ActorService {
 	
 	String deleteActor(Long id) throws NetflixException;
 	
-	ActorRest modifyActor(ActorRest actorRest) throws NetflixException;
+	ActorRest updateActor(ActorRest actorRest) throws NetflixException;
 	
 	List<ActorRest> getActorsByChapter(Long chapterId) throws NetflixException;
 

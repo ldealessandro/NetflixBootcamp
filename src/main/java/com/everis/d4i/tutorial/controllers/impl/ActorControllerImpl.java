@@ -45,7 +45,7 @@ public class ActorControllerImpl implements ActorController {
 	}
 
 	@Override
-	@ResponseStatus(HttpStatus.OK)
+	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public NetflixResponse<ActorRest> createActor(
 			@ApiParam(value = RestConstants.PARAMETER_ACTOR, required = true) @RequestBody @Valid final ActorRest actorRest)
@@ -55,7 +55,7 @@ public class ActorControllerImpl implements ActorController {
 	}
 	
 	@Override
-	@ResponseStatus(HttpStatus.OK)
+	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping(value = RestConstants.RESOURCE_DELETE_ACTOR, produces = MediaType.APPLICATION_JSON_VALUE)
 	public NetflixResponse<String> deleteActor(@PathVariable final Long actorId) throws NetflixException {
 		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.NO_CONTENT), CommonConstants.OK,
@@ -64,13 +64,13 @@ public class ActorControllerImpl implements ActorController {
 	}
 	
 	@Override
-	@ResponseStatus(HttpStatus.OK)
-	@PutMapping(path = "/modifyActor",produces = MediaType.APPLICATION_JSON_VALUE)
-	public NetflixResponse<ActorRest> modifyActor(
-			@ApiParam(value = RestConstants.PARAMETER_ACTORMODIFY, required = true) @RequestBody @Valid final ActorRest actor2Rest)
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@PutMapping(path = "/updateActor",produces = MediaType.APPLICATION_JSON_VALUE)
+	public NetflixResponse<ActorRest> updateActor(
+			@ApiParam(value = RestConstants.PARAMETER_ACTOR_UPDATE, required = true) @RequestBody @Valid final ActorRest actor2Rest)
 			throws NetflixException {
 		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.NO_CONTENT), CommonConstants.OK,
-				actorService.modifyActor(actor2Rest));
+				actorService.updateActor(actor2Rest));
 	}
 	
 	@Override
@@ -91,7 +91,7 @@ public class ActorControllerImpl implements ActorController {
 	
 	@Override
 	@ResponseStatus(HttpStatus.OK)
-	@GetMapping(value = RestConstants.PARAMETER_TVSHOWCHAPTERSNYACTOR, produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value = RestConstants.PARAMETER_TVSHOWCHAPTERSBYACTOR, produces = MediaType.APPLICATION_JSON_VALUE)
 	public NetflixResponse<List<TvShowRest>> getTvShowChaptersByActor(@PathVariable final Long actorId) throws NetflixException {
 		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK,
 				actorService.getTvShowsAndChaptersByActorId(actorId));

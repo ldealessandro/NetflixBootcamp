@@ -17,7 +17,7 @@ public class RestConstants {
 	
 	public static final String RESOURCE_ACTOR = "/actors";
 	public static final String PARAMETER_ACTOR = "actors";
-	public static final String PARAMETER_ACTORMODIFY = "actorModify";
+	public static final String PARAMETER_ACTOR_UPDATE = "actorModify";
 		
 	public static final String RESOURCE_AWARD = "/awards";
 	public static final String PARAMETER_AWARD = "awards";
@@ -32,7 +32,7 @@ public class RestConstants {
 	public static final String RESOURCE_MODIFY_ACTOR = "/modifyActor";
 	
 	public static final String PARAMETER_ACTORBYCHAPTERID = "/getActorsByChapter/{chapterId}";
-	public static final String PARAMETER_TVSHOWCHAPTERSNYACTOR = "/getTvShowsChaptersByActor/{actorId}";
+	public static final String PARAMETER_TVSHOWCHAPTERSBYACTOR = "/getTvShowsChaptersByActor/{actorId}";
 
 	private RestConstants() {
 		throw new IllegalStateException("Utility Class");

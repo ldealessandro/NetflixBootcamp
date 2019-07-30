@@ -10,4 +10,8 @@ public interface CategoryService {
 	List<CategoryRest> getCategories() throws NetflixException;
 
 	CategoryRest createCategories(CategoryRest categoryRest) throws NetflixException;
+	
+	CategoryRest getCategoryById(Long id) throws NetflixException;
+	
+	CategoryRest getCategoryByName(String name) throws NetflixException;
 }

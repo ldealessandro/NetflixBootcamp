@@ -92,7 +92,7 @@ public class ActorControllerImplUnitTest {
     }
     
     @Test
-    public void modifyActor() throws NetflixException{
+    public void updateActor() throws NetflixException{
         //given
     	final ActorRest actorRest = new ActorRest();
     	final Long id = 22L;
@@ -100,10 +100,10 @@ public class ActorControllerImplUnitTest {
         final ActorRest actorRestModified = new ActorRest();
         actorRestModified.setId(id);
         
-		Mockito.when(actorService.modifyActor(actorRest)).thenReturn(actorRestModified);
+		Mockito.when(actorService.updateActor(actorRest)).thenReturn(actorRestModified);
 
 		// when
-		NetflixResponse<ActorRest> netflixResponse = actorControllerImpl.modifyActor(actorRest);
+		NetflixResponse<ActorRest> netflixResponse = actorControllerImpl.updateActor(actorRest);
 
 		// then
 		assertNotNull(netflixResponse);
