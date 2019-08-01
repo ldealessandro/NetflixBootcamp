@@ -53,12 +53,8 @@ public class ActorServiceImpl implements ActorService {
 	@Override
 	public ActorRest createActor(final ActorRest actorRest) throws NetflixException {
 
-		final Actor actorIn = new Actor();
-		modelMapper.map(actorIn, ActorRest.class);
-
-		final Actor actorOut = actorRepository.save(actorIn);
-
-		return modelMapper.map(actorOut, ActorRest.class);
+		final Actor actor = modelMapper.map(actorRest, Actor.class);
+		return modelMapper.map(actorRepository.save(actor), ActorRest.class);
 
 	}
 

@@ -22,7 +22,7 @@ import static org.junit.Assert.*;
 
 
 @RunWith(MockitoJUnitRunner.class)
-public class TvShowAwardsControllerImplUnitTest {
+public class TvShowAwardsControllerImplTest {
 
     @Mock
     private TvShowAwardsService tvShowAwardsService;
