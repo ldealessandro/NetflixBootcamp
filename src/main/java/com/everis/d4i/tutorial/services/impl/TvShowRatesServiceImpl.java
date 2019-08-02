@@ -9,6 +9,7 @@ import com.everis.d4i.tutorial.entities.TvShow;
 import com.everis.d4i.tutorial.exceptions.NetflixException;
 import com.everis.d4i.tutorial.exceptions.NotFoundException;
 import com.everis.d4i.tutorial.json.TvShowRest;
+import com.everis.d4i.tutorial.repositories.TvShowRatesOfCriticsRepository;
 import com.everis.d4i.tutorial.repositories.TvShowRepository;
 import com.everis.d4i.tutorial.services.TvShowRatesService;
 import com.everis.d4i.tutorial.utils.constants.ExceptionConstants;
@@ -19,6 +20,8 @@ public class TvShowRatesServiceImpl implements TvShowRatesService {
 	@Autowired
 	private TvShowRepository tvShowRepository;
 	
+	@Autowired
+	private TvShowRatesOfCriticsRepository tvShowRatesOfCriticsRepository;
 
 	private ModelMapper modelMapper = new ModelMapper();
 
@@ -41,5 +44,26 @@ public class TvShowRatesServiceImpl implements TvShowRatesService {
 
 	return tvShowRest;
 	}
+	
+	@Override
+	public TvShowRest getRateOfCriticsByTvShowId(final Long id) throws NetflixException {
+		
+		 final TvShow tvShow = tvShowRepository.findById(id) 
+				.orElseThrow(() -> new NotFoundException(ExceptionConstants.MESSAGE_INEXISTENT_TV_SHOW));
+		 
+		final TvShowRest tvShowRest = modelMapper.map(tvShow, TvShowRest.class);		
+			
+		/* //final TvShow tvShow2 = tvShowRatesOfCriticsRepository.findRateOfCritics(tvShow.getName());
+		 System.out.println(tvShowRest.getName());
+		 
+		final TvShowRest tvShowRest2 = tvShowRatesOfCriticsRepository.findRateOfCritics(tvShowRest.getName()); 
+		
+		final Double rate = tvShowRest2.getRate();
+		
+		System.out.println(rate);*/
+		
+		tvShowRest.setRateOfCritics(tvShowRatesOfCriticsRepository.findRateOfCritics(tvShowRest.getName()).getRate());
 
+	return tvShowRest;
+	}
 }

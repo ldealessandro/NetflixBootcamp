@@ -8,4 +8,6 @@ public interface TvShowRatesController {
 
 	NetflixResponse<TvShowRest> getRateByTvShowId(Long id) throws NetflixException;
 	
+	NetflixResponse<TvShowRest> getRateOfCriticsByTvShowId(Long id) throws NetflixException;
+	
 }

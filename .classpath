@@ -29,5 +29,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="target/netflix-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ldealess/Downloads/spring-cloud-starter-openfeign-2.1.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ldealess/Downloads/spring-cloud-starter-openfeign.jar.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

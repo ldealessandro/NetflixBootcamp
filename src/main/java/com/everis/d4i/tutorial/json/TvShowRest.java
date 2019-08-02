@@ -20,6 +20,8 @@ public class TvShowRest implements Serializable {
 	private byte recommendedAge;
 	private String advertising;
 	private Double rate;
+	private Double rateOfCritics;
+	
 	
 	private List<SeasonRest> seasons;
 
@@ -115,6 +117,14 @@ public class TvShowRest implements Serializable {
 
 	public void setRate(Double rate) {
 		this.rate = rate;
+	}
+
+	public Double getRateOfCritics() {
+		return rateOfCritics;
+	}
+
+	public void setRateOfCritics(Double rateOfCritics) {
+		this.rateOfCritics = rateOfCritics;
 	}
 
 	@Override

@@ -23,6 +23,9 @@ public class TvShowRatesControllerImpl implements TvShowRatesController {
 
 	@Autowired
 	private TvShowRatesService tvShowRatesService;
+	
+	/*@Autowired
+	private TvShowRatesOfCriticsService tvShowRatesOfCriticsService;*/
 
 
 	@Override
@@ -31,6 +34,14 @@ public class TvShowRatesControllerImpl implements TvShowRatesController {
 	public NetflixResponse<TvShowRest> getRateByTvShowId(@PathVariable final Long id) throws NetflixException {
 		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK,
 				tvShowRatesService.getRateByTvShowId(id));
+	}
+	
+	@Override
+	@ResponseStatus(HttpStatus.OK)
+	@GetMapping(value = "/CRITCOS/{tvShowId}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public NetflixResponse<TvShowRest> getRateOfCriticsByTvShowId(@PathVariable final Long tvShowId) throws NetflixException {
+		return new NetflixResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK,
+				tvShowRatesService.getRateOfCriticsByTvShowId(tvShowId));
 	}
 	
 
