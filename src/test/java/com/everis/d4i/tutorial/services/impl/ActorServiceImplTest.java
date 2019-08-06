@@ -101,16 +101,20 @@ public class ActorServiceImplTest {
 	public void createActor() throws NetflixException {
 
 		// given
-		final Actor actor = new Actor();
-		final ActorRest actorRest = new ActorRest();
-		when(actorRepository.save(Mockito.any(Actor.class))).thenReturn(actor);
-		when(modelMapper.map(actor, ActorRest.class)).thenReturn(actorRest);
+		final ActorRest actorRest = new  ActorRest();
+		final  Actor actorInput = new  Actor();
+		final  Actor actorOutput = new  Actor();
+		final  ActorRest actorRestOut = new  ActorRest();
+
+		Mockito.when(modelMapper.map(actorRest,  Actor.class)).thenReturn(actorInput);
+		Mockito.when(actorRepository.save(actorInput)).thenReturn(actorOutput);
+		Mockito.when(modelMapper.map(actorOutput,  ActorRest.class)).thenReturn(actorRestOut);
 
 		// when
-		ActorRest actorRestOut = actorService.createActor(actorRest);
+		final ActorRest actorRestOutput = actorService.createActor(actorRest);
 
 		// then
-		assertThat(actorRestOut).isEqualTo(actorRest);
+		assertThat(actorRestOutput).isSameAs(actorRestOut);
 	}
 
 	@Test

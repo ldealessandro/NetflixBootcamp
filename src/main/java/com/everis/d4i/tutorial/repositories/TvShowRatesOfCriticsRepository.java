@@ -2,12 +2,10 @@ package com.everis.d4i.tutorial.repositories;
 
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.everis.d4i.tutorial.entities.TvShow;
 import com.everis.d4i.tutorial.json.TvShowRest;
 import com.everis.d4i.tutorial.utils.constants.RestConstants;
 

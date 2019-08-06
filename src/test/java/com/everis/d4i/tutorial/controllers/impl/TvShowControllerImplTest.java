@@ -16,7 +16,9 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.HttpStatus;
 
 import com.everis.d4i.tutorial.exceptions.NetflixException;
+import com.everis.d4i.tutorial.json.AwardRest;
 import com.everis.d4i.tutorial.json.CategoryRest;
+import com.everis.d4i.tutorial.json.TvShowAwardsRest;
 import com.everis.d4i.tutorial.json.TvShowRest;
 import com.everis.d4i.tutorial.responses.NetflixResponse;
 import com.everis.d4i.tutorial.services.TvShowService;
@@ -78,4 +80,89 @@ public class TvShowControllerImplTest {
         assertEquals(netflixResponse.getMessage(), CommonConstants.OK);
         assertEquals(netflixResponse.getData(), tvShowRest);        
 	}
+	
+	   @Test
+	    public void getAwardsByTvShow() throws NetflixException {
+
+	        //given
+	    	AwardRest award1 = new AwardRest();
+	    	AwardRest award2 = new AwardRest();
+	    	AwardRest award3 = new AwardRest();
+	    	
+	        List<AwardRest> awardRestList = new ArrayList<>();
+	        awardRestList.add(award1);
+	        awardRestList.add(award2);
+	        awardRestList.add(award3);
+	        
+	        Long id = 1L;
+	        TvShowRest tvShow = new TvShowRest();
+	        tvShow.setId(id);
+	        
+	        TvShowAwardsRest tvShowAwards1 = new TvShowAwardsRest();
+	        tvShowAwards1.setAward(award1);
+	        tvShowAwards1.setTvShow(tvShow);
+	        TvShowAwardsRest tvShowAwards2 = new TvShowAwardsRest();
+	        tvShowAwards2.setAward(award2);
+	        tvShowAwards2.setTvShow(tvShow);
+	        TvShowAwardsRest tvShowAwards3 = new TvShowAwardsRest();
+	        tvShowAwards3.setAward(award3);
+	        tvShowAwards3.setTvShow(tvShow);
+	        
+	        List<TvShowAwardsRest> tvShowAwardsRestList = new ArrayList<>();
+	        Mockito.when(tvShowService.getTvShowAwardsByTvShow(id)).thenReturn(tvShowAwardsRestList);
+
+	        //when
+	        NetflixResponse<List<TvShowAwardsRest>> netflixResponse = tvShowControllerImpl.getTvShowAwardsByTvShow(id);
+
+	        //then
+	        assertNotNull(netflixResponse);
+	        assertEquals(netflixResponse.getStatus(), CommonConstants.SUCCESS);
+	        assertEquals(netflixResponse.getCode(), String.valueOf(HttpStatus.OK));
+	        assertEquals(netflixResponse.getMessage(), CommonConstants.OK);
+	        assertEquals(netflixResponse.getData(), tvShowAwardsRestList);
+	    }
+	   
+	   @Test
+		public void getRatesByTvShowIdReturnsRate() throws NetflixException {
+			// given
+			final long id = 1;
+			final TvShowRest tvShowRest = new TvShowRest();
+			tvShowRest.setId(id);
+			Double rate = null;
+			
+			//Mockito.when(tvShowService.getTvShowById(id)).thenReturn(tvShowRest);
+			Mockito.when(tvShowService.getRateByTvShowId(id)).thenReturn(rate);
+
+			// when
+			final NetflixResponse<Double> netflixResponse = tvShowControllerImpl.getRateByTvShowId(id);
+			
+			// then
+			assertNotNull(netflixResponse);
+	        assertEquals(netflixResponse.getStatus(), CommonConstants.SUCCESS);
+	        assertEquals(netflixResponse.getCode(), String.valueOf(HttpStatus.OK));
+	        assertEquals(netflixResponse.getMessage(), CommonConstants.OK);
+	        assertEquals(netflixResponse.getData(), rate);        
+		}
+	   
+	   @Test
+		public void getRateOfCriticsByTvShowIdReturnsRateOfCritics() throws NetflixException {
+			// given
+			final long id = 1;
+			final TvShowRest tvShowRest = new TvShowRest();
+			tvShowRest.setId(id);
+			Double rateOfCritics = null;
+			
+			//Mockito.when(tvShowService.getTvShowById(id)).thenReturn(tvShowRest);
+			Mockito.when(tvShowService.getRateOfCriticsByTvShowId(id)).thenReturn(rateOfCritics);
+
+			// when
+			final NetflixResponse<Double> netflixResponse = tvShowControllerImpl.getRateOfCriticsByTvShowId(id);
+			
+			// then
+			assertNotNull(netflixResponse);
+	        assertEquals(netflixResponse.getStatus(), CommonConstants.SUCCESS);
+	        assertEquals(netflixResponse.getCode(), String.valueOf(HttpStatus.OK));
+	        assertEquals(netflixResponse.getMessage(), CommonConstants.OK);
+	        assertEquals(netflixResponse.getData(), rateOfCritics);        
+		}
 }

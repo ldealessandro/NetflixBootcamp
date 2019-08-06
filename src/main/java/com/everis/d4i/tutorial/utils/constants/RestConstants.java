@@ -30,7 +30,7 @@ public class RestConstants {
 	public static final String RESOURCE_ACTORID = "/getActorById/{actorId}";
 	public static final String RESOURCE_CHAPTERID = "/getActorById/{chapterId}";
 	public static final String RESOURCE_DELETE_ACTOR = "/deleteActor/{actorId}";
-	public static final String RESOURCE_MODIFY_ACTOR = "/modifyActor";
+	public static final String RESOURCE_UPDATE_ACTOR = "/updateActor";
 	
 	public static final String PARAMETER_ACTORBYCHAPTERID = "/getActorsByChapter/{chapterId}";
 	public static final String PARAMETER_TVSHOWCHAPTERSBYACTOR = "/getTvShowsChaptersByActor/{actorId}";

@@ -65,7 +65,7 @@ public class ActorControllerImpl implements ActorController {
 	
 	@Override
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@PutMapping(path = "/updateActor",produces = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(path = RestConstants.RESOURCE_UPDATE_ACTOR,produces = MediaType.APPLICATION_JSON_VALUE)
 	public NetflixResponse<ActorRest> updateActor(
 			@ApiParam(value = RestConstants.PARAMETER_ACTOR_UPDATE, required = true) @RequestBody @Valid final ActorRest actor2Rest)
 			throws NetflixException {
