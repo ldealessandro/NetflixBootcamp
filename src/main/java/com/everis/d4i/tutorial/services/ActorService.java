@@ -12,6 +12,8 @@ public interface ActorService {
 	
 	ActorRest getActorById(Long id) throws NetflixException;
 	
+	ActorRest getActorByName(String name) throws NetflixException;
+	
 	ActorRest createActor(ActorRest actorRest) throws NetflixException;
 	
 	String deleteActor(Long id) throws NetflixException;

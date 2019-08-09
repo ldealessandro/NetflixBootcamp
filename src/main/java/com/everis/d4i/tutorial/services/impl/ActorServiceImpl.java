@@ -49,6 +49,14 @@ public class ActorServiceImpl implements ActorService {
 		return modelMapper.map(actor, ActorRest.class);
 
 	}
+	
+    @Override
+    public ActorRest getActorByName(String name) {
+    	
+    	final Actor actor = actorRepository.findByName(name);
+
+		return modelMapper.map(actor, ActorRest.class);
+    }
 
 	@Override
 	public ActorRest createActor(final ActorRest actorRest) throws NetflixException {
