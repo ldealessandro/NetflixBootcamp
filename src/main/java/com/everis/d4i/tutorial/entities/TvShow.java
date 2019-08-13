@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Table(name = "TV_SHOWS")
 public class TvShow implements Serializable {
 
-	private static final long serialVersionUID = 4916713904971425156L;
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,7 +48,7 @@ public class TvShow implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "tvShow")
 	private List<TvShowAwards> tvShowAwards;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "tvShow")
+	@OneToMany(mappedBy = "tvShow")
 	private List<TvShowCategories> tvShowCategories;
 
 	public Long getId() {

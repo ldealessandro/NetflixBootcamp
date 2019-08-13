@@ -1,0 +1,3 @@
+
+INSERT INTO CATEGORIES(ID, NAME) VALUES 
+	(1, 'category1');

@@ -1,0 +1,10 @@
+INSERT INTO CATEGORIES(ID, NAME) VALUES 
+	(1, 'TERROR');
+
+INSERT INTO TV_SHOWS(ID, NAME, SHORT_DESC, LONG_DESC, YEAR, RECOMMENDED_AGE) VALUES 
+	(1, 'Juego de tronos', 'Descripción corta', 'Descripción larga', '2012', 16); 
+
+INSERT INTO SEASONS(ID, NUMBER, NAME, TV_SHOW_ID) VALUES 
+	(1, 1, 'One', 1),
+	(2, 2, 'Two', 1);
+	

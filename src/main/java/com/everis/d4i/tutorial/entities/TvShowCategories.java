@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name = "TV_SHOW_CATEGORIES")
 public class TvShowCategories implements Serializable {
 
-	private static final long serialVersionUID = 8725949484031409482L;
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
